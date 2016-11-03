@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    package="com.syx.doubleservice"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".MessageActivity"></activity>
+
+        <service
+            android:name=".ServiceOne">
+            <intent-filter>
+                <action android:name="com.syx.doubleservice.ServiceOne"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".ServiceTwo"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.syx.doubleservice.ServiceTwo"/>
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".PollingService">
+            <intent-filter>
+                <action android:name="com.syx.doubleservice.PollingService"/>
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
